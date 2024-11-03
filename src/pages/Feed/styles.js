@@ -9,34 +9,28 @@ export const Container = styled.main`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-
 `
-export const Title = styled.h2`
+export const Title = styled.h3`
   font-family: 'Open-Sans';
   font-style: 'normal';
   font-weight: 700;
-  font-size: 32px;
-  width: 320px;
-  margin-bottom: 20px ;
-  line-height: 44px;
-
+  font-size: 18px;
+  line-height: 25px;
   color: #ffffff;
+  margin-bottom: 24px ;
 `
-export const TitleHighLight = styled.span `
-  color: #e4105d;
+export const TitleHighLight = styled.h3 `
+  font-family: 'Open-Sans';
+  font-style: 'normal';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #ffffff70;
+  margin-bottom: 24px ;
 
 `
 
-export const TextContent = styled.p `
-    font-family: 'Open-Sans';
-    font-style: 'normal';
-    font-weight: 400;
-    font-size: 16px;
-    width: 420px;
-    margin-bottom: 20px ;
-    line-height: 22px;
-
-    color: #ffffff;
-
+export const Column = styled.div`
+  flex:${({flex}) => flex};
+  padding-right: 24px;
 `
