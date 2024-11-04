@@ -55,7 +55,6 @@ const Login= () => {
                         <CriarText>Criar conta</CriarText>
                     </Row>
                 </Wrapper>
-                <Input placeholder="email"/>                
             </Column>
         </Container>
     </>)
