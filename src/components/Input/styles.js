@@ -22,7 +22,7 @@ export const IconContainer = styled.div `
 `
 
 export const InputText = styled.input `
-    background-coler: transparent;
+    background-color: transparent;
     color: #ffffff;
     width: 100%;
     border: 0;

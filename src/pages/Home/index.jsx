@@ -28,7 +28,7 @@ const Home= () => {
                     Domine as tecnologias utilizadas pelas empresas mais inovadoras do mundo e encare seu novo
                             desafio profissional, evoluindo em comunidade com os melhores experts.
                 </TextContent>
-                <Button title="Começar Agora" variante = "secondary" onClick={handleClickSignIn} />
+                <Button title="Começar Agora" variant = "secondary" onClick={handleClickSignIn} />
             </div>
             <div>
                 <img src={bannerDio} alt="Imagem Principal"></img>                
