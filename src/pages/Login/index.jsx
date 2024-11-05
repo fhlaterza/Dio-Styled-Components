@@ -2,12 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import {MdEmail , MdLock} from 'react-icons/md';
+import { MdEmail , MdLock} from 'react-icons/md';
 
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 
+import { api } from '../../services/api';
 import { Container, Title, TitleLogin, SubTitleLogin, CriarText, EsqueciText,  Column, Row, Wrapper} from "./styles";
 
 const schema = yup.object({
@@ -26,11 +27,26 @@ const Login= () => {
 
     console.log(isValid, errors, control);
 
-    const onSubmit = data => console.log(data);
+    //const onSubmit = data => console.log(data);
+    const onSubmit = async formData => {
+        try {
+            const { data } = await api.get(`users?email=${formData.email}&senha=${formData.password}`);
+            if(data.length ===1) {
+                console.log('retorno api', data);
+                navigate('/feed');
+            }else {
+                alert('Email ou senha invalidos')
+            }
 
-    const handleClickSignIn = () => {
-        navigate('/feed');
-    }
+        } catch {
+            alert('Houve um erro, tente novamente...')
+        }
+    };
+
+    // const handleClickSignIn = () => {
+    //     navigate('/feed');
+    // }  
+    // e lá no button tinha que colocar o onSubmit={handleClickSignIn}
 
     return (<>
         <Header />
@@ -48,7 +64,7 @@ const Login= () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <Input name="email" errorMessage={errors?.email?.message} control={control} placeholder="E-mail" leftIcon={<MdEmail />}/>
                         <Input name="password" errorMessage={errors?.password?.message} control={control} placeholder="Senha" type="password" leftIcon={<MdLock />} />
-                        <Button title="Entrar" variant="secondary" onClick={handleClickSignIn} type="submit"/>
+                        <Button title="Entrar" variant="secondary" type="submit"/>
                     </form>
                     <Row>
                         <EsqueciText>Esqueci minha senha</EsqueciText>
