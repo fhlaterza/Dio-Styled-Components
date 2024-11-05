@@ -76,6 +76,6 @@ export const CriarText = styled.p`
   font-size: 14px;
   line-height: 19px;
 
-  color: #e23007;
+  color: #23DD7A;
 
 `
